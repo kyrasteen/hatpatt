@@ -3,9 +3,12 @@ const variables = {
 
   padding: 10,
   margin: 10,
+
   backgroundColor: '#492329',
+  highlightBackgroundColor: '#fff',
 
   mainTextColor: '#f2f2f2',
+  errorTextColor: 'tomato',
 
   tinyFontSize: 12,
   mediumFontSize: 16,

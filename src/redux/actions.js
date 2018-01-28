@@ -1,15 +1,17 @@
-const updateActiveUserEmail = value => ({
-  type: 'updateActiveUserEmail',
+import { createAction } from 'redux-act';
+
+const AUTH_PREFIX = 'AUTH ->';
+
+const updateActiveUserEmail = createAction(`${AUTH_PREFIX} update active user email`, value => ({
   value,
-});
+}));
 
-const updateActiveUserPassword = value => ({
-  type: 'updateActiveUserPassword',
+const updateActiveUserPassword = createAction(`${AUTH_PREFIX} update active user password`, value => ({
   value,
-});
+}));
 
-const validateCredentials = () => ({
-  type: 'validateCredentials',
-});
+const validateCredentials = createAction(`${AUTH_PREFIX} validate credentials`);
 
-export { updateActiveUserEmail, updateActiveUserPassword, validateCredentials };
+const logoutUser = createAction(`${AUTH_PREFIX} logout`);
+
+export { updateActiveUserEmail, updateActiveUserPassword, validateCredentials, logoutUser };
