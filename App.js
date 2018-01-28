@@ -5,6 +5,8 @@ import reducer from './src/redux/reducers';
 import { AppNavigator } from './src/redux/reducers/nav-reducer';
 import { addNavigationHelpers } from 'react-navigation';
 
+import './reactotronConfig';
+
 class App extends React.Component {
   render() {
     return <AppNavigator navigation={addNavigationHelpers({ dispatch: this.props.dispatch, state: this.props.nav })} />;
