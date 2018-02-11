@@ -13,6 +13,7 @@ const Home = class Home extends React.Component {
       <View style={_styles.container}>
         <Button title="logout" onPress={this.props.logoutUser} />
         <Text style={styles.header}>HatPatt</Text>
+        <Button title="new project" onPress={this.props.createNewProject} />
       </View>
     );
   }
@@ -27,6 +28,10 @@ const _styles = StyleSheet.create({
   },
 });
 
+Home.displayName = 'Home';
+Home.propTypes = {};
+
+
 mapStateToProps = state => ({});
 
 mapDispatchToProps = dispatch => {
@@ -34,6 +39,10 @@ mapDispatchToProps = dispatch => {
     logoutUser: () => {
       dispatch(actions.logoutUser());
       dispatch(NavigationActions.navigate({ routeName: 'login' }));
+    },
+    createNewProject: () => {
+      dispatch(actions.createProject());
+      dispatch(NavigationActions.navigate({ routeName: 'project' }));
     },
   };
 };

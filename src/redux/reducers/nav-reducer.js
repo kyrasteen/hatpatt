@@ -1,18 +1,17 @@
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
-import { Login, Profile, Home } from '../../components';
+import { Login, Home, Project } from '../../components';
 
 const routeConfig = {
-  login: { screen: Login, navigationOptions: { headerTitle: 'login', headerLeft: null } },
   home: { screen: Home, navigationOptions: { headerTitle: 'hattPatt', headerLeft: null } },
+  login: { screen: Login, navigationOptions: { headerTitle: 'login', headerLeft: null } },
+  project: { screen: Project, navigationOptions: { headerTitle: 'project', headerLeft: null } },
 };
 
 const AppNavigator = StackNavigator(routeConfig);
-// console.log(AppNavigator.router.getActionForPathAndParams('main'));
-const initialState = AppNavigator.router.getStateForAction({ type: 'login' });
+const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('login'));
 
 const navReducer = (state = initialState, action) => {
-  // TODO: handle diff action types?
   const nextState = AppNavigator.router.getStateForAction(action, state);
   return nextState || state;
 };

@@ -1,4 +1,5 @@
 const getAuthState = state => state.authentication;
+const getProjectState = state => state.project;
 
 // authentication
 const getActiveUserEmail = state => {
@@ -17,4 +18,17 @@ const getAuthFailMessage = state => {
   return getAuthState(state).authFailMessage;
 };
 
-export { getAuthState, getActiveUserEmail, getActiveUserPassword, getAccounts, getIsAuthenticated, getAuthFailMessage };
+// project
+const getActiveProject = state => {
+  return getProjectState(state).activeProject;
+};
+
+export {
+  getAuthState,
+  getActiveUserEmail,
+  getActiveUserPassword,
+  getAccounts,
+  getIsAuthenticated,
+  getAuthFailMessage,
+  getActiveProject,
+};

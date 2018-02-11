@@ -4,9 +4,10 @@ import * as selectors from '../redux/selectors';
 import * as actions from '../redux/actions';
 import { NavigationActions } from 'react-navigation';
 
-import { StyleSheet, TextInput, Text, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button, Image, TouchableOpacity } from 'react-native';
 
 import styles, { variables } from '../styles';
+import img from '../assets/img';
 
 const Login = class Login extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -18,12 +19,13 @@ const Login = class Login extends React.Component {
   render() {
     return (
       <View style={_styles.container}>
+        <Image source={img.tempLogo} style={{ width:80, height: 80 }}/>
         <Text style={styles.header}>HatPatt</Text>
         <If condition={this.props.authFailMessage}>
           <Text style={styles.common.error}>{this.props.authFailMessage}</Text>
         </If>
         <Text style={styles.label}>email</Text>
-        <TextInput style={styles.input} value={this.props.email} onChangeText={this.props.onEmailChange} />
+        <TextInput style={styles.input} value={this.props.email} onChangeText={this.props.onEmailChange} autoFocus={true} keyboardType='email-address'/>
         <Text style={styles.label}>password</Text>
         <TextInput style={styles.input} value={this.props.password} onChangeText={this.props.onPasswordChange} />
         <TouchableOpacity onPress={this.props.onValidateCredentials}>
@@ -45,6 +47,9 @@ const _styles = StyleSheet.create({
     padding: variables.padding,
   },
 });
+
+Login.displayName = 'Login';
+Login.propTypes = {};
 
 const mapStateToProps = state => {
   return {

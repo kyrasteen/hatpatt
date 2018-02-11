@@ -31,7 +31,7 @@ const authReducer = createReducer(on => {
       return state.set('isAuthenticated', isAuthenticated);
     } else {
       const message = 'incorrect email or password';
-      Vibration.vibrate(1000);
+      // Vibration.vibrate(1000);
       return state.set('authFailMessage', message);
     }
   });

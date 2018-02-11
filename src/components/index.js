@@ -1,5 +1,5 @@
-import Home from './home';
-import Login from './login';
-import Profile from './profile';
+import Home from './Home';
+import Login from './Login';
+import Project from './Project';
 
-export { Home, Login, Profile };
+export { Home, Login, Project };
